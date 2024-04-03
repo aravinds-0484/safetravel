@@ -8,7 +8,7 @@ import 'package:safetravel/page2.dart';
 void main() {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'splash',
+    initialRoute: 'page2',
     routes: {
       'login': (BuildContext) => MyLogin(),
       'page2': (BuildContext) => MyPage2(),
