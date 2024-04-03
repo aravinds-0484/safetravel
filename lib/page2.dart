@@ -105,6 +105,24 @@ class MyPage2 extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 25,
+                width: 70,
+                child: OutlinedButton(
+                  onPressed: () {
+                    // Add onPressed callback function here
+                  },
+                  style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor:
+                          Color.fromARGB(255, 162, 198, 164) // Text color
+                      ),
+                  child: Text("go"),
+                ),
+              ),
 
               SizedBox(
                 height: 60,
