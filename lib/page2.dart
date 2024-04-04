@@ -35,7 +35,7 @@ class MyPage2 extends StatelessWidget {
                         SizedBox(
                           width: 30,
                         ),
-                        Image.asset('circle.png', width: 20, height: 20),
+                        Image.asset('circle.png', width: 17, height: 20),
                         SizedBox(
                           width: 5,
                         ),
@@ -68,7 +68,7 @@ class MyPage2 extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 10,
                     ),
                     Row(
                       children: [
@@ -77,7 +77,7 @@ class MyPage2 extends StatelessWidget {
                         ),
                         Image.asset('map-pin.png', width: 20, height: 20),
                         SizedBox(
-                          width: 5,
+                          width: 0,
                         ),
                         Text("Choose Destination"),
                       ],
@@ -110,22 +110,28 @@ class MyPage2 extends StatelessWidget {
               ),
               Container(
                 height: 25,
-                width: 70,
+                width: 150,
                 child: OutlinedButton(
                   onPressed: () {
                     // Add onPressed callback function here
                   },
                   style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      backgroundColor:
-                          Color.fromARGB(255, 162, 198, 164) // Text color
-                      ),
+                    foregroundColor: Color.fromARGB(255, 0, 0, 0),
+                    backgroundColor:
+                        Color.fromARGB(255, 255, 255, 255), // Text color
+                    side: BorderSide(
+                        width: 0.5, color: Colors.black), // Outline stroke
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(30.0), // Circular border radius
+                    ),
+                  ),
                   child: Text("go"),
                 ),
               ),
 
               SizedBox(
-                height: 60,
+                height: 30,
               ),
 
               Container(
