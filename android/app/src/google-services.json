@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "893558883016",
+    "project_id": "safetravel-49975",
+    "storage_bucket": "safetravel-49975.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893558883016:android:97a015807d0d26d5d79bfd",
+        "android_client_info": {
+          "package_name": "com.example.safetravel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr0aHIY9nsN7bRWU83vqvTNTN9hskP0As"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
