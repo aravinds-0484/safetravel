@@ -5,6 +5,7 @@ import 'package:safetravel/login.dart';
 import "package:safetravel/splash.dart";
 import 'package:safetravel/page2.dart';
 import 'package:safetravel/home.dart';
+import 'package:safetravel/page3.dart';
 
 void main() {
   runApp(GetMaterialApp(
@@ -14,7 +15,8 @@ void main() {
       'login': (BuildContext) => MyLogin(),
       'page2': (BuildContext) => MyPage2(),
       'splash': (BuildContext) => Mysplash(),
-      'home': (BuildContext) => MyHome()
+      'home': (BuildContext) => MyHome(),
+      'page3': (BuildContext) => MyPage3()
     },
   ));
 }
