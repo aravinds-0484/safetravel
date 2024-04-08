@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:get/route_manager.dart';
+import 'package:safetravel/page2.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
@@ -25,7 +26,8 @@ class _MyLoginState extends State<MyLogin> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('LOGO.png', width: 200, height: 150),
+                    Image.asset('LOGO.png',
+                        width: width * 0.3, height: height * 0.3),
                     const SizedBox(height: 10),
                     Text("Your safest travel partner"),
                   ],
@@ -36,11 +38,16 @@ class _MyLoginState extends State<MyLogin> {
               Container(
                 width: 150,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyPage2()),
+                    );
+                  },
                   child: Row(children: [
                     Image.asset('google.png', width: 20, height: 20),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: width * 0.035,
                     ),
                     Text("SIGN UP")
                   ]),

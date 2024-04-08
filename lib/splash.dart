@@ -19,7 +19,8 @@ class Mysplash extends StatefulWidget {
 }
 
 class _MysplashState extends State<Mysplash> {
-  final SplashTransition transition = SplashTransition.fadeTransition; // Change this to use different transitions
+  final SplashTransition transition = SplashTransition
+      .fadeTransition; // Change this to use different transitions
 
   @override
   void initState() {
@@ -29,48 +30,48 @@ class _MysplashState extends State<Mysplash> {
       () => Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-  transitionDuration: Duration(milliseconds: 1000),
-  pageBuilder: (_, __, ___) => MyLogin(),
-  transitionsBuilder: (_, animation, __, child) {
-    switch (transition) {
-      case SplashTransition.slideTransition:
-        return SlideTransition(
-          position: Tween<Offset>(
-            begin: Offset(1.0, 0.0),
-            end: Offset.zero,
-          ).animate(animation),
-          child: child,
-        );
-      case SplashTransition.scaleTransition:
-        return ScaleTransition(
-          scale: Tween<double>(begin: 0.0, end: 1.0).animate(animation),
-          child: child,
-        );
-      case SplashTransition.rotationTransition:
-        return RotationTransition(
-          turns: Tween<double>(begin: 0.0, end: 1.0).animate(animation),
-          child: child,
-        );
-      case SplashTransition.sizeTransition:
-        return SizeTransition(
-          sizeFactor: Tween<double>(begin: 0.0, end: 1.0).animate(animation),
-          child: child,
-        );
-      case SplashTransition.fadeTransition:
-        return FadeTransition(
-          opacity: animation,
-          child: child,
-        );
-      case SplashTransition.decoratedBoxTransition:
-        // No direct equivalent transition, returning FadeTransition as placeholder
-        return FadeTransition(
-          opacity: animation,
-          child: child,
-        );
-    }
-  },
-),
-
+          transitionDuration: Duration(milliseconds: 1000),
+          pageBuilder: (_, __, ___) => MyLogin(),
+          transitionsBuilder: (_, animation, __, child) {
+            switch (transition) {
+              case SplashTransition.slideTransition:
+                return SlideTransition(
+                  position: Tween<Offset>(
+                    begin: Offset(1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                );
+              case SplashTransition.scaleTransition:
+                return ScaleTransition(
+                  scale: Tween<double>(begin: 0.0, end: 1.0).animate(animation),
+                  child: child,
+                );
+              case SplashTransition.rotationTransition:
+                return RotationTransition(
+                  turns: Tween<double>(begin: 0.0, end: 1.0).animate(animation),
+                  child: child,
+                );
+              case SplashTransition.sizeTransition:
+                return SizeTransition(
+                  sizeFactor:
+                      Tween<double>(begin: 0.0, end: 1.0).animate(animation),
+                  child: child,
+                );
+              case SplashTransition.fadeTransition:
+                return FadeTransition(
+                  opacity: animation,
+                  child: child,
+                );
+              case SplashTransition.decoratedBoxTransition:
+                // No direct equivalent transition, returning FadeTransition as placeholder
+                return FadeTransition(
+                  opacity: animation,
+                  child: child,
+                );
+            }
+          },
+        ),
       ),
     );
   }
@@ -93,19 +94,21 @@ class _MysplashState extends State<Mysplash> {
                   duration: Duration(milliseconds: 500),
                   child: Image.asset(
                     'LOGO.png',
-                    width: 200,
-                    height: 150,
-                    key: ValueKey(transition), // Ensure the animation is triggered when the transition changes
+                    width: width * 0.4,
+                    height: height * 0.4,
+                    key: ValueKey(
+                        transition), // Ensure the animation is triggered when the transition changes
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: height * 0.01),
             AnimatedSwitcher(
-              duration: Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 400),
               child: Text(
                 "Your safest travel partner",
-                key: ValueKey(transition), // Ensure the animation is triggered when the transition changes
+                key: ValueKey(
+                    transition), // Ensure the animation is triggered when the transition changes
               ),
             ),
           ],

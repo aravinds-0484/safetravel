@@ -24,14 +24,8 @@ class MyPage3 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(
                     20), // Border radius for rounded corners
                 child: Container(
-                  width: width * 0.75,
-                  height: height * 0.5,
-                  child: WebView(
-                    initialUrl:
-                        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.626999152558!2d76.62937717511063!3d8.914225091142603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fd3036020df5%3A0xc3c1007e5232dc27!2sTKM%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1712315024352!5m2!1sen!2sin',
-                    javascriptMode: JavascriptMode.unrestricted,
-                  ),
-                ),
+                    child: Image.asset('map.jpg',
+                        width: width * 0.9, height: height * 0.5)),
               ),
               SizedBox(
                 height: height * 0.05,
