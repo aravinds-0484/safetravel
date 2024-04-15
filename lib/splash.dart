@@ -31,7 +31,7 @@ class _MysplashState extends State<Mysplash> {
         context,
         PageRouteBuilder(
           transitionDuration: Duration(milliseconds: 1000),
-          pageBuilder: (_, __, ___) => MyLogin(),
+          pageBuilder: (_, __, ___) => LoginForm(),
           transitionsBuilder: (_, animation, __, child) {
             switch (transition) {
               case SplashTransition.slideTransition:
