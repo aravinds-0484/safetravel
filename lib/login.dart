@@ -296,9 +296,9 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
           ),
           TextFormField(
             decoration: InputDecoration(labelText: 'Password'),
-            // onSaved: (String? value) {
-            //   person.password = value!;
-            // },
+            onSaved: (String? value) {
+              person.password = value!;
+            },
             obscureText: true,
           ),
           TextFormField(
