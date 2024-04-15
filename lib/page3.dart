@@ -1,38 +1,41 @@
-import 'package:flutter/material.dart';
-
-// ignore: unused_import
-import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
-
-// ignore: unused_import
-import 'package:webview_flutter/webview_flutter.dart';
-//import 'package:get/route_manager.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
-
-@override
-Widget build(BuildContext context) {
-  return FlutterMap(
-    options: MapOptions(
-      initialCenter: LatLng(51.509364, -0.128928),
-      initialZoom: 9.2,
-    ),
-    children: [
-      TileLayer(
-        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-        userAgentPackageName: 'com.example.app',
-      ),
-      RichAttributionWidget(
-        attributions: [
-          TextSourceAttribution(
-            'OpenStreetMap contributors',
-            onTap: () => launchUrl(Uri.parse(
-                'https://api.mapbox.com/styles/v1/wavboi/clv192o0200a701qv8omx3uow/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoid2F2Ym9pIiwiYSI6ImNsdXd5OHU2cTBlcG8ycW53ZWtxcGtnczQifQ.0Nyj5M8i7PDpOPIicxP0EQ')),
-          ),
-        ],
-      ),
-    ],
-  );
-}
+import 'package:flutter/material.dart'
+    show
+        BorderRadius,
+        BoxDecoration,
+        BoxShape,
+        BuildContext,
+        Center,
+        Color,
+        Colors,
+        Column,
+        Container,
+        EdgeInsets,
+        ElevatedButton,
+        FontWeight,
+        Form,
+        FormState,
+        GestureDetector,
+        GlobalKey,
+        Image,
+        InputDecoration,
+        ListView,
+        MainAxisAlignment,
+        Material,
+        MaterialPageRoute,
+        MediaQuery,
+        Navigator,
+        Positioned,
+        Row,
+        Scaffold,
+        SizedBox,
+        Stack,
+        State,
+        StatefulWidget,
+        StatelessWidget,
+        Text,
+        TextFormField,
+        TextStyle,
+        Widget;
 
 class MyPage3 extends StatelessWidget {
   const MyPage3({super.key});

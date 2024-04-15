@@ -8,15 +8,12 @@ import "package:safetravel/splash.dart";
 import 'package:safetravel/page2.dart';
 import 'package:safetravel/page3.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized;
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+void main() {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'login',
+    initialRoute: 'splash',
     routes: {
-      'login': (BuildContext) => MyLogin(),
+      'login': (BuildContext) => LoginForm(),
       'page2': (BuildContext) => MyPage2(),
       'splash': (BuildContext) => Mysplash(),
       'page3': (BuildContext) => MyPage3(),
