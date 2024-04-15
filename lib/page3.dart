@@ -1,8 +1,41 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:safetravel/auth.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-//import 'package:get/route_manager.dart';
+import 'package:flutter/material.dart'
+    show
+        BorderRadius,
+        BoxDecoration,
+        BoxShape,
+        BuildContext,
+        Center,
+        Color,
+        Colors,
+        Column,
+        Container,
+        EdgeInsets,
+        ElevatedButton,
+        FontWeight,
+        Form,
+        FormState,
+        GestureDetector,
+        GlobalKey,
+        Image,
+        InputDecoration,
+        ListView,
+        MainAxisAlignment,
+        Material,
+        MaterialPageRoute,
+        MediaQuery,
+        Navigator,
+        Positioned,
+        Row,
+        Scaffold,
+        SizedBox,
+        Stack,
+        State,
+        StatefulWidget,
+        StatelessWidget,
+        Text,
+        TextFormField,
+        TextStyle,
+        Widget;
 
 class MyPage3 extends StatelessWidget {
   const MyPage3({super.key});
@@ -13,19 +46,6 @@ class MyPage3 extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Center(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 121, 204, 169),
-          title: Text('Safe travel'),
-          actions: [
-            // Logout Button
-            IconButton(
-              icon: Icon(Icons.logout),
-              onPressed: () {
-                AuthServices.signoutUser();
-              },
-            ),
-          ],
-        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -274,22 +294,9 @@ class _AccidentFormState extends State<AccidentForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 121, 204, 169),
-        title: Text('Safe travel'),
-        actions: [
-          // Logout Button
-          IconButton(
-            icon: Icon(Icons.logout),
-            onPressed: () {
-              AuthServices.signoutUser();
-            },
-          ),
-        ],
-      ),
+    return Material(
       // Wrap with Material widget
-      body: Form(
+      child: Form(
         key: _formKey,
         child: ListView(
           padding: EdgeInsets.all(16.0),

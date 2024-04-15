@@ -46,7 +46,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '300824618215',
     projectId: 'safe-travel-3f42d',
     authDomain: 'safe-travel-3f42d.firebaseapp.com',
-    databaseURL: 'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'safe-travel-3f42d.appspot.com',
     measurementId: 'G-Q2LT6M8VYP',
   );
@@ -56,7 +57,8 @@ class DefaultFirebaseOptions {
     appId: '1:300824618215:android:bf112188ec704ffcadae42',
     messagingSenderId: '300824618215',
     projectId: 'safe-travel-3f42d',
-    databaseURL: 'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'safe-travel-3f42d.appspot.com',
   );
 
@@ -65,9 +67,11 @@ class DefaultFirebaseOptions {
     appId: '1:300824618215:ios:9b382abe37718796adae42',
     messagingSenderId: '300824618215',
     projectId: 'safe-travel-3f42d',
-    databaseURL: 'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'safe-travel-3f42d.appspot.com',
-    iosClientId: '300824618215-ck3e3h7e476vndei5d2pu5ivvtet87rv.apps.googleusercontent.com',
+    iosClientId:
+        '300824618215-ck3e3h7e476vndei5d2pu5ivvtet87rv.apps.googleusercontent.com',
     iosBundleId: 'com.example.safetravel',
   );
 
@@ -76,9 +80,11 @@ class DefaultFirebaseOptions {
     appId: '1:300824618215:ios:9b382abe37718796adae42',
     messagingSenderId: '300824618215',
     projectId: 'safe-travel-3f42d',
-    databaseURL: 'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'safe-travel-3f42d.appspot.com',
-    iosClientId: '300824618215-ck3e3h7e476vndei5d2pu5ivvtet87rv.apps.googleusercontent.com',
+    iosClientId:
+        '300824618215-ck3e3h7e476vndei5d2pu5ivvtet87rv.apps.googleusercontent.com',
     iosBundleId: 'com.example.safetravel',
   );
 
@@ -88,7 +94,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '300824618215',
     projectId: 'safe-travel-3f42d',
     authDomain: 'safe-travel-3f42d.firebaseapp.com',
-    databaseURL: 'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://safe-travel-3f42d-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'safe-travel-3f42d.appspot.com',
     measurementId: 'G-V6X1SQQMYZ',
   );
