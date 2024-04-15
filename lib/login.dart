@@ -3,7 +3,7 @@ import 'package:safetravel/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'page2.dart' show MyPage2;
+import 'package:safetravel/page2.dart';
 
 class MyLogin extends StatelessWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -12,29 +12,6 @@ class MyLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-
-    Future<void> signInWithEmailAndPassword(BuildContext context) async {
-      try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
-        );
-        // Navigate to the next page upon successful login
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => MyPage2()),
-        );
-      } catch (e) {
-        // Handle sign-in errors
-        print("Error signing in: $e");
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Failed to sign in. Please try again.'),
-        ));
-      }
-    }
-
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -65,13 +42,11 @@ class MyLogin extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextFormField(
-                        controller: emailController,
                         decoration: InputDecoration(labelText: 'Email'),
                         keyboardType: TextInputType.emailAddress,
                         onSaved: (String? value) {},
                       ),
                       TextFormField(
-                        controller: passwordController,
                         decoration: InputDecoration(labelText: 'Password'),
                         onSaved: (String? value) {},
                         obscureText: true,
@@ -267,8 +242,6 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final GlobalKey<FormFieldState<String>> _passwordFieldKey =
       GlobalKey<FormFieldState<String>>();
-  final _UsNumberTextInputFormatter _phoneNumberFormatter =
-      _UsNumberTextInputFormatter();
 
   void _handleSubmitted() {
     final form = _formKey.currentState!;
@@ -290,36 +263,6 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
     }
   }
 
-  String? _validateName(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Name is required.';
-    }
-    final nameExp = RegExp(r'^[A-Za-z ]+$');
-    if (!nameExp.hasMatch(value)) {
-      return 'Please enter only alphabetical characters.';
-    }
-    return null;
-  }
-
-  String? _validatePhoneNumber(String? value) {
-    final phoneExp = RegExp(r'^\d\d\d\d\d\d\d\d\d\d$');
-    if (!phoneExp.hasMatch(value!)) {
-      return 'Please enter a valid phone number.';
-    }
-    return null;
-  }
-
-  String? _validatePassword(String? value) {
-    final passwordField = _passwordFieldKey.currentState!;
-    if (passwordField.value == null || passwordField.value!.isEmpty) {
-      return 'Please enter a password.';
-    }
-    if (passwordField.value != value) {
-      return 'Passwords do not match.';
-    }
-    return null;
-  }
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -333,37 +276,33 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
           TextFormField(
             textCapitalization: TextCapitalization.words,
             decoration: InputDecoration(labelText: 'Name'),
-            validator: _validateName,
             onSaved: (String? value) {
               person.name = value;
             },
           ),
           TextFormField(
             decoration: InputDecoration(labelText: 'Phone Number'),
-            validator: _validatePhoneNumber,
-            keyboardType: TextInputType.phone,
-            onSaved: (String? value) {
-              person.phoneNumber = value;
-            },
+            // keyboardType: TextInputType.phone,
+            // onSaved: (String? value) {
+            //   person.phoneNumber = value;
+            // },
           ),
           TextFormField(
             decoration: InputDecoration(labelText: 'Email'),
             keyboardType: TextInputType.emailAddress,
-            onSaved: (String? value) {
-              person.email = value;
-            },
+            // onSaved: (String? value) {
+            //   person.email = value;
+            // },
           ),
           TextFormField(
             decoration: InputDecoration(labelText: 'Password'),
-            validator: _validatePassword,
-            onSaved: (String? value) {
-              person.password = value!;
-            },
+            // onSaved: (String? value) {
+            //   person.password = value!;
+            // },
             obscureText: true,
           ),
           TextFormField(
             decoration: InputDecoration(labelText: 'Retype Password'),
-            validator: _validatePassword,
             obscureText: true,
           ),
           SizedBox(
@@ -381,44 +320,6 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
           ),
         ],
       ),
-    );
-  }
-}
-
-/// Format incoming numeric text to fit the format of (###) ###-####
-class _UsNumberTextInputFormatter extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(
-    TextEditingValue oldValue,
-    TextEditingValue newValue,
-  ) {
-    final newTextLength = newValue.text.length;
-    final newText = StringBuffer();
-    var selectionIndex = newValue.selection.end;
-    var usedSubstringIndex = 0;
-    if (newTextLength >= 1) {
-      newText.write('(');
-      if (newValue.selection.end >= 1) selectionIndex++;
-    }
-    if (newTextLength >= 4) {
-      newText.write('${newValue.text.substring(0, usedSubstringIndex = 3)}) ');
-      if (newValue.selection.end >= 3) selectionIndex += 2;
-    }
-    if (newTextLength >= 7) {
-      newText.write('${newValue.text.substring(3, usedSubstringIndex = 6)}-');
-      if (newValue.selection.end >= 6) selectionIndex++;
-    }
-    if (newTextLength >= 11) {
-      newText.write('${newValue.text.substring(6, usedSubstringIndex = 10)} ');
-      if (newValue.selection.end >= 10) selectionIndex++;
-    }
-    // Dump the rest.
-    if (newTextLength >= usedSubstringIndex) {
-      newText.write(newValue.text.substring(usedSubstringIndex));
-    }
-    return TextEditingValue(
-      text: newText.toString(),
-      selection: TextSelection.collapsed(offset: selectionIndex),
     );
   }
 }
