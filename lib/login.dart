@@ -21,6 +21,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -98,10 +100,10 @@ class _LoginFormState extends State<LoginForm> {
                 },
               ),
               SizedBox(
-                height: 30,
+                height: height * 0.04,
               ),
               Container(
-                height: 55,
+                height: height * 0.065,
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: () async {
@@ -113,10 +115,15 @@ class _LoginFormState extends State<LoginForm> {
                                 email, password, fullname);
                       }
                     },
-                    child: Text(login ? 'Login' : 'Signup')),
+                    child: Text(
+                      login ? 'Login' : 'Signup',
+                      style: TextStyle(
+                        fontSize: height * 0.023,
+                      ),
+                    )),
               ),
               SizedBox(
-                height: 10,
+                height: height * 0.005,
               ),
               TextButton(
                   onPressed: () {
@@ -124,9 +131,12 @@ class _LoginFormState extends State<LoginForm> {
                       login = !login;
                     });
                   },
-                  child: Text(login
-                      ? "Don't have an account? Signup"
-                      : "Already have an account? Login"))
+                  child: Text(
+                    login
+                        ? "Don't have an account? Signup"
+                        : "Already have an account? Login",
+                    style: TextStyle(fontSize: width * 0.02),
+                  ))
             ],
           ),
         ),
