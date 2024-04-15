@@ -11,6 +11,8 @@ import 'package:safetravel/page2.dart';
 import 'package:safetravel/page3.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: 'login',

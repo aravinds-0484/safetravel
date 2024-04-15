@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
 import 'package:get/get.dart';
-// ignore: unused_import
 import 'package:safetravel/login.dart';
 import 'package:safetravel/page3.dart';
-// ignore: unused_import
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:safetravel/auth.dart';
 
