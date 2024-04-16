@@ -1,4 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:safetravel/page3.dart';
 
 class Crud {
   static writeToFirestore(String currentLocation, String destination) async {
@@ -14,6 +17,10 @@ class Crud {
       });
 
       print('Data written to Firestore successfully');
+      Get.snackbar('Route set', 'let\'s go');
+
+      // Navigate to Page2 after successful login
+      Get.offAll(() => MyPage3());
     } catch (e) {
       print('Error writing to Firestore: $e');
       // Handle error appropriately
