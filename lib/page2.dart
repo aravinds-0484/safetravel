@@ -177,11 +177,6 @@ class MyPage2 extends StatelessWidget {
 
 // Write data to Firestore
                     Crud.writeToFirestore(currentLocation, destination);
-
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => MyPage3()),
-                    // );
                   },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 0, 0, 0),
