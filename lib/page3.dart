@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:safetravel/auth.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 //import 'package:get/route_manager.dart';
 
@@ -12,6 +13,19 @@ class MyPage3 extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Center(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 121, 204, 169),
+          title: Text('Safe travel'),
+          actions: [
+            // Logout Button
+            IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                AuthServices.signoutUser();
+              },
+            ),
+          ],
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -260,9 +274,22 @@ class _AccidentFormState extends State<AccidentForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 121, 204, 169),
+        title: Text('Safe travel'),
+        actions: [
+          // Logout Button
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              AuthServices.signoutUser();
+            },
+          ),
+        ],
+      ),
       // Wrap with Material widget
-      child: Form(
+      body: Form(
         key: _formKey,
         child: ListView(
           padding: EdgeInsets.all(16.0),

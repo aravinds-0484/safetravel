@@ -8,5 +8,39 @@
   },
   "storage": {
     "rules": "storage.rules"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "safe-travel-3f42d",
+          "appId": "1:300824618215:android:bf112188ec704ffcadae42",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "safe-travel-3f42d",
+          "configurations": {
+            "android": "1:300824618215:android:bf112188ec704ffcadae42",
+            "ios": "1:300824618215:ios:9b382abe37718796adae42",
+            "macos": "1:300824618215:ios:9b382abe37718796adae42",
+            "web": "1:300824618215:web:22d01f1e878d2dceadae42",
+            "windows": "1:300824618215:web:a44cf95ae6634a5badae42"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "asia-east1"
+    }
   }
 }
