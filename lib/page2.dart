@@ -4,9 +4,21 @@ import 'package:safetravel/login.dart';
 import 'package:safetravel/page3.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:safetravel/auth.dart';
+import 'package:safetravel/CRUD.dart';
 
 class MyPage2 extends StatelessWidget {
-  const MyPage2({Key? key});
+  MyPage2({Key? key});
+
+  TextEditingController _currentLocationController = TextEditingController();
+  TextEditingController _destinationController = TextEditingController();
+
+  String getCurrentLocation() {
+    return _currentLocationController.text;
+  }
+
+  String getDestination() {
+    return _destinationController.text;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +78,7 @@ class MyPage2 extends StatelessWidget {
                       width: width * 0.4,
                       height: height * 0.05,
                       child: TextField(
+                        controller: _currentLocationController,
                         textAlign: TextAlign.start,
                         textAlignVertical: TextAlignVertical.center,
                         cursorHeight: 20,
@@ -102,6 +115,7 @@ class MyPage2 extends StatelessWidget {
                       width: width * 0.4,
                       height: height * 0.05,
                       child: TextField(
+                        controller: _destinationController,
                         textAlign: TextAlign.start,
                         textAlignVertical: TextAlignVertical.center,
                         cursorHeight: 20,
@@ -124,10 +138,17 @@ class MyPage2 extends StatelessWidget {
                 width: width * 0.5,
                 child: OutlinedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyPage3()),
-                    );
+                    // Assuming you have access to the current location and destination strings
+                    String currentLocation = getCurrentLocation();
+                    String destination = getDestination();
+
+// Write data to Firestore
+                    Crud.writeToFirestore(currentLocation, destination);
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => MyPage3()),
+                    // );
                   },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: Color.fromARGB(255, 0, 0, 0),
