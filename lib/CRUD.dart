@@ -29,8 +29,8 @@ class Crud {
 }
 
 class Crud1 {
-  static writeTo(String Type, String Vehicle1, String Vehicle2,
-      Timestamp timestamp) async {
+  static writeTo(
+      String Type, String Vehicle1, String Vehicle2, String timestamp) async {
     try {
       // Access the Firestore instance
       FirebaseFirestore firestore = FirebaseFirestore.instance;
