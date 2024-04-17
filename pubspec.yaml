@@ -44,6 +44,7 @@ dependencies:
   cloud_firestore: ^4.16.1
   firebase_core: ^2.29.0
   firebase_cloud_firestore: ^4.15.8
+  flutter_map: ^6.1.0
 
 dev_dependencies:
   flutter_test:
