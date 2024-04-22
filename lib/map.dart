@@ -36,8 +36,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         layers: [
           TileLayerOptions(
-            utlTemplater: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            subdomains: ['a','b','c']
+            utlTemplater: "https://api.mapbox.com/styles/v1/wavboi/clvaybfrz00tw01qu0fs49dbl/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoid2F2Ym9pIiwiYSI6ImNsdXd5OHU2cTBlcG8ycW53ZWtxcGtnczQifQ.0Nyj5M8i7PDpOPIicxP0EQ",
+            additionalOptions: {
+              'accessToken': 'pk.eyJ1Ijoid2F2Ym9pIiwiYSI6ImNsdXd5OHU2cTBlcG8ycW53ZWtxcGtnczQifQ.0Nyj5M8i7PDpOPIicxP0EQ',
+              'id':'pk.eyJ1Ijoid2F2Ym9pIiwiYSI6ImNsdXd5OHU2cTBlcG8ycW53ZWtxcGtnczQifQ.0Nyj5M8i7PDpOPIicxP0EQ'
+            }
           ),
           MarkerLayerOptions(
             markers: [
