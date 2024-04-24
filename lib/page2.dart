@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:safetravel/login.dart';
-import 'package:safetravel/page3.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:safetravel/auth.dart';
 import 'package:safetravel/CRUD.dart';
 
 class MyPage2 extends StatelessWidget {
-  MyPage2({Key? key});
 
-  TextEditingController _currentLocationController = TextEditingController();
-  TextEditingController _destinationController = TextEditingController();
+  final TextEditingController _currentLocationController = TextEditingController();
+  final TextEditingController _destinationController = TextEditingController();
 
   String getCurrentLocation() {
     return _currentLocationController.text;
@@ -27,12 +22,12 @@ class MyPage2 extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 121, 204, 169),
-        title: Text('Safe travel'),
+        backgroundColor: const Color.fromARGB(255, 121, 204, 169),
+        title: const Text('Safe travel'),
         actions: [
           // Logout Button
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               AuthServices.signoutUser();
             },
@@ -49,7 +44,7 @@ class MyPage2 extends StatelessWidget {
                 width: width * 0.6,
                 height: height * 0.4,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 213, 232, 224),
+                  color: const Color.fromARGB(255, 213, 232, 224),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Column(
@@ -64,7 +59,7 @@ class MyPage2 extends StatelessWidget {
                         Text(
                           "Choose Current Location",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 0.03 * width,
                             fontFamily: 'Inter.ttf',
                             fontWeight: FontWeight.normal,
@@ -74,7 +69,7 @@ class MyPage2 extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: height * 0.019),
-                    Container(
+                    SizedBox(
                       width: width * 0.4,
                       height: height * 0.05,
                       child: TextField(
@@ -84,7 +79,7 @@ class MyPage2 extends StatelessWidget {
                         cursorHeight: 20,
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: Color.fromARGB(255, 247, 249, 248),
+                          fillColor: const Color.fromARGB(255, 247, 249, 248),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
                             borderSide: BorderSide.none,
@@ -102,7 +97,7 @@ class MyPage2 extends StatelessWidget {
                         Text(
                           "Choose Destination",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: width * 0.03,
                             fontFamily: 'Inter.ttf',
                             fontWeight: FontWeight.normal,
@@ -111,7 +106,7 @@ class MyPage2 extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: height * 0.02),
-                    Container(
+                    SizedBox(
                       width: width * 0.4,
                       height: height * 0.05,
                       child: TextField(
@@ -121,7 +116,7 @@ class MyPage2 extends StatelessWidget {
                         cursorHeight: 20,
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: Color.fromARGB(255, 247, 249, 248),
+                          fillColor: const Color.fromARGB(255, 247, 249, 248),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
                             borderSide: BorderSide.none,
@@ -133,7 +128,7 @@ class MyPage2 extends StatelessWidget {
                 ),
               ),
               SizedBox(height: height * 0.01),
-              Container(
+              SizedBox(
                 height: height * 0.05,
                 width: width * 0.5,
                 child: OutlinedButton(
@@ -151,23 +146,23 @@ class MyPage2 extends StatelessWidget {
                     // );
                   },
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                    backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                    side: BorderSide(
+                    foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                    side: const BorderSide(
                         width: 0.5,
-                        color: const Color.fromARGB(255, 137, 134, 134)),
+                        color: Color.fromARGB(255, 137, 134, 134)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     "go",
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),
               SizedBox(height: height * 0.001),
-              Container(
+              SizedBox(
                 width: width * 0.8,
                 height: height * 0.4,
                 child: Column(
@@ -175,8 +170,8 @@ class MyPage2 extends StatelessWidget {
                   children: [
                     Image.asset('LOGO.png',
                         width: width * 0.5, height: width * 0.4),
-                    SizedBox(height: 2),
-                    Text("Your safest travel partner"),
+                    const SizedBox(height: 2),
+                    const Text("Your safest travel partner"),
                   ],
                 ),
               ),

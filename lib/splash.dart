@@ -12,7 +12,7 @@ enum SplashTransition {
 }
 
 class Mysplash extends StatefulWidget {
-  const Mysplash({Key? key}) : super(key: key);
+  const Mysplash({super.key});
 
   @override
   _MysplashState createState() => _MysplashState();
@@ -26,18 +26,18 @@ class _MysplashState extends State<Mysplash> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 5),
+      const Duration(seconds: 5),
       () => Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          transitionDuration: Duration(milliseconds: 1000),
-          pageBuilder: (_, __, ___) => LoginForm(),
+          transitionDuration: const Duration(milliseconds: 1000),
+          pageBuilder: (_, __, ___) => const LoginForm(),
           transitionsBuilder: (_, animation, __, child) {
             switch (transition) {
               case SplashTransition.slideTransition:
                 return SlideTransition(
                   position: Tween<Offset>(
-                    begin: Offset(1.0, 0.0),
+                    begin: const Offset(1.0, 0.0),
                     end: Offset.zero,
                   ).animate(animation),
                   child: child,
@@ -87,11 +87,11 @@ class _MysplashState extends State<Mysplash> {
           children: [
             Hero(
               tag: 'logoHero', // Unique tag for the hero animation
-              child: Container(
+              child: SizedBox(
                 width: width * 0.4,
                 height: height * 0.4,
                 child: AnimatedSwitcher(
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   child: Image.asset(
                     'LOGO.png',
                     width: width * 0.4,
@@ -104,7 +104,7 @@ class _MysplashState extends State<Mysplash> {
             ),
             SizedBox(height: height * 0.01),
             AnimatedSwitcher(
-              duration: Duration(milliseconds: 400),
+              duration: const Duration(milliseconds: 400),
               child: Text(
                 "Your safest travel partner",
                 key: ValueKey(

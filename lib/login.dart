@@ -1,7 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:safetravel/page2.dart';
 import 'package:safetravel/auth.dart';
 
 class LoginForm extends StatefulWidget {
@@ -26,13 +23,13 @@ class _LoginFormState extends State<LoginForm> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('Safetravel'),
-        backgroundColor: Color.fromARGB(255, 121, 204, 169),
+        title: const Text('Safetravel'),
+        backgroundColor: const Color.fromARGB(255, 121, 204, 169),
       ),
       body: Form(
         key: _formKey,
         child: Container(
-          padding: EdgeInsets.all(14),
+          padding: const EdgeInsets.all(14),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -42,8 +39,8 @@ class _LoginFormState extends State<LoginForm> {
                 child: login
                     ? Container()
                     : TextFormField(
-                        key: ValueKey('fullname'),
-                        decoration: InputDecoration(
+                        key: const ValueKey('fullname'),
+                        decoration: const InputDecoration(
                           hintText: 'Enter Full Name',
                         ),
                         validator: (value) {
@@ -62,8 +59,8 @@ class _LoginFormState extends State<LoginForm> {
               ),
               // ======== Email ========
               TextFormField(
-                key: ValueKey('email'),
-                decoration: InputDecoration(
+                key: const ValueKey('email'),
+                decoration: const InputDecoration(
                   hintText: 'Enter Email',
                 ),
                 validator: (value) {
@@ -81,9 +78,9 @@ class _LoginFormState extends State<LoginForm> {
               ),
               // ======== Password ========
               TextFormField(
-                key: ValueKey('password'),
+                key: const ValueKey('password'),
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Enter Password',
                 ),
                 validator: (value) {
@@ -102,7 +99,7 @@ class _LoginFormState extends State<LoginForm> {
               SizedBox(
                 height: height * 0.04,
               ),
-              Container(
+              SizedBox(
                 height: height * 0.065,
                 width: double.infinity,
                 child: ElevatedButton(

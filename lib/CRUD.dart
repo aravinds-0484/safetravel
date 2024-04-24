@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:safetravel/page3.dart';
 
 class Crud {
@@ -20,7 +19,7 @@ class Crud {
       Get.snackbar('Route set', 'let\'s go');
 
       // Navigate to Page2 after successful login
-      Get.offAll(() => MyPage3());
+      Get.offAll(() => const MyPage3());
     } catch (e) {
       print('Error writing to Firestore: $e');
       // Handle error appropriately

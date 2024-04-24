@@ -50,7 +50,7 @@ class AuthServices {
   static signoutUser() async {
     try {
       await FirebaseAuth.instance.signOut();
-      Get.offAll(() => LoginForm()); // Navigate to login page after signout
+      Get.offAll(() => const LoginForm()); // Navigate to login page after signout
       Get.snackbar('Success', 'Logged out successfully');
     } catch (e) {
       Get.snackbar('Error', 'Failed to sign out');

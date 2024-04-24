@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:safetravel/auth.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 //import 'package:get/route_manager.dart';
 
 class MyPage3 extends StatelessWidget {
@@ -14,12 +12,12 @@ class MyPage3 extends StatelessWidget {
     return Center(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 121, 204, 169),
-          title: Text('Safe travel'),
+          backgroundColor: const Color.fromARGB(255, 121, 204, 169),
+          title: const Text('Safe travel'),
           actions: [
             // Logout Button
             IconButton(
-              icon: Icon(Icons.logout),
+              icon: const Icon(Icons.logout),
               onPressed: () {
                 AuthServices.signoutUser();
               },
@@ -30,7 +28,7 @@ class MyPage3 extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Material(
@@ -53,7 +51,7 @@ class MyPage3 extends StatelessWidget {
                   height: height * 0.32,
                   decoration: BoxDecoration(
                     color:
-                        Color.fromARGB(255, 0, 0, 0), // Color of the rectangle
+                        const Color.fromARGB(255, 0, 0, 0), // Color of the rectangle
                     borderRadius: BorderRadius.circular(
                         20), // Optional: You can add border radius for rounded corners
                   ),
@@ -65,10 +63,10 @@ class MyPage3 extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
-                          Text(
+                          const Text(
                             "Now Approaching",
                             style: TextStyle(
                               color: Colors.deepOrangeAccent, // Text color
@@ -90,7 +88,7 @@ class MyPage3 extends StatelessWidget {
                           SizedBox(
                             width: width * 0.025,
                           ),
-                          Text(
+                          const Text(
                             "Neendakara - Chinnakkada Rd, \nSakthikulangara North, Kollam, Kerala \n691003",
                             style: TextStyle(
                               color: Colors.deepOrangeAccent, // Text color
@@ -114,10 +112,10 @@ class MyPage3 extends StatelessWidget {
                             SizedBox(
                               width: width * 0.025,
                             ),
-                            Text(
+                            const Text(
                               "Blackspot Detected : 2",
                               style: TextStyle(
-                                color: const Color.fromARGB(
+                                color: Color.fromARGB(
                                     255, 255, 255, 255), // Text color
                                 fontSize: 20,
                                 fontFamily: 'Inter.ttf', // Font size
@@ -131,13 +129,13 @@ class MyPage3 extends StatelessWidget {
                         height: height * 0.03,
                       ),
                       Material(
-                        color: Color.fromARGB(255, 146, 139, 139),
+                        color: const Color.fromARGB(255, 146, 139, 139),
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
                           width: width * 0.55,
                           height: height * 0.055,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(
+                              color: const Color.fromARGB(
                                   255, 62, 62, 62), // Color of the rectangle
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
@@ -145,7 +143,7 @@ class MyPage3 extends StatelessWidget {
                               SizedBox(
                                 width: width * 0.09,
                               ),
-                              Text(
+                              const Text(
                                 "Emergency Contacts",
                                 style: TextStyle(
                                   color: Colors.white, // Text color
@@ -183,7 +181,7 @@ class MyPage3 extends StatelessWidget {
                     width: width * 0.233,
                     height: height * 0.052,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(
+                      color: const Color.fromARGB(
                           255, 189, 188, 188), // Color of the rectangle
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -216,18 +214,18 @@ class MyPage3 extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => AccidentForm()),
+                                    builder: (context) => const AccidentForm()),
                               );
                             },
                             child: Container(
                               width: width * 0.095, // Diameter of the circle
                               height: height * 0.052, // Diameter of the circle
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: const Color.fromARGB(
+                                color: Color.fromARGB(
                                     255, 177, 41, 41), // Color of the circle
                               ),
-                              child: Stack(
+                              child: const Stack(
                                 children: [
                                   Center(
                                     child: Text(
@@ -261,6 +259,8 @@ class MyPage3 extends StatelessWidget {
 }
 
 class AccidentForm extends StatefulWidget {
+  const AccidentForm({super.key});
+
   @override
   _AccidentFormState createState() => _AccidentFormState();
 }
@@ -276,12 +276,12 @@ class _AccidentFormState extends State<AccidentForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 121, 204, 169),
-        title: Text('Safe travel'),
+        backgroundColor: const Color.fromARGB(255, 121, 204, 169),
+        title: const Text('Safe travel'),
         actions: [
           // Logout Button
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               AuthServices.signoutUser();
             },
@@ -292,10 +292,10 @@ class _AccidentFormState extends State<AccidentForm> {
       body: Form(
         key: _formKey,
         child: ListView(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           children: [
             TextFormField(
-              decoration: InputDecoration(labelText: 'Type of Accident'),
+              decoration: const InputDecoration(labelText: 'Type of Accident'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter type of accident';
@@ -308,34 +308,34 @@ class _AccidentFormState extends State<AccidentForm> {
                 });
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Vehicle 1'),
+              decoration: const InputDecoration(labelText: 'Vehicle 1'),
               onChanged: (value) {
                 setState(() {
                   vehicle1 = value;
                 });
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Vehicle 2'),
+              decoration: const InputDecoration(labelText: 'Vehicle 2'),
               onChanged: (value) {
                 setState(() {
                   vehicle2 = value;
                 });
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Time of Accident'),
+              decoration: const InputDecoration(labelText: 'Time of Accident'),
               onChanged: (value) {
                 setState(() {
                   timeOfAccident = value;
                 });
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
@@ -347,7 +347,7 @@ class _AccidentFormState extends State<AccidentForm> {
                   print('Time of Accident: $timeOfAccident');
                 }
               },
-              child: Text('Submit'),
+              child: const Text('Submit'),
             ),
           ],
         ),
