@@ -26,3 +26,30 @@ class Crud {
     }
   }
 }
+<<<<<<< HEAD
+
+class Crud1 {
+  static writeTo(
+      String type, String vehicle1, String vehicle2, String timestamp) async {
+    try {
+      // Access the Firestore instance
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+      // Add data to a collection
+      await firestore.collection('accidents').add({
+        'type': type,
+        'vehicle1': vehicle1,
+        'vehicle2': vehicle2,
+        'timestamp': timestamp,
+        // Add more fields as needed
+      });
+
+      print('Accident data written to Firestore successfully');
+    } catch (e) {
+      print('Error writing accident data to Firestore: $e');
+      // Handle error appropriately
+    }
+  }
+}
+=======
+>>>>>>> origin
