@@ -26,7 +26,6 @@ class Crud {
     }
   }
 }
-<<<<<<< HEAD
 
 class Crud1 {
   static writeTo(
@@ -51,5 +50,3 @@ class Crud1 {
     }
   }
 }
-=======
->>>>>>> origin

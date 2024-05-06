@@ -3,8 +3,8 @@ import 'package:safetravel/auth.dart';
 import 'package:safetravel/CRUD.dart';
 
 class MyPage2 extends StatelessWidget {
-
-  final TextEditingController _currentLocationController = TextEditingController();
+  final TextEditingController _currentLocationController =
+      TextEditingController();
   final TextEditingController _destinationController = TextEditingController();
 
   String getCurrentLocation() {
@@ -26,13 +26,51 @@ class MyPage2 extends StatelessWidget {
         title: const Text('Safe travel'),
         actions: [
           // Logout Button
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              AuthServices.signoutUser();
-            },
-          ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 121, 204, 169),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('LOGO.png'),
+                  ),
+                  SizedBox(height: height * 0.03),
+                  Text(
+                    'John Doe',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              title: Text('Account'),
+              onTap: () {
+                // Navigate to account screen
+              },
+              leading: Icon(Icons.person_sharp),
+            ),
+            ListTile(
+              title: Text('Logout'),
+              onTap: () {
+                // Perform logout action here
+                AuthServices.signoutUser();
+              },
+              leading: Icon(Icons.logout),
+            ),
+          ],
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -149,8 +187,7 @@ class MyPage2 extends StatelessWidget {
                     foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                     backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                     side: const BorderSide(
-                        width: 0.5,
-                        color: Color.fromARGB(255, 137, 134, 134)),
+                        width: 0.5, color: Color.fromARGB(255, 137, 134, 134)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),

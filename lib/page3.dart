@@ -14,243 +14,295 @@ class MyPage3 extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 121, 204, 169),
           title: const Text('Safe travel'),
-          actions: [
-            // Logout Button
-            IconButton(
-              icon: const Icon(Icons.logout),
-              onPressed: () {
-                AuthServices.signoutUser();
-              },
-            ),
-          ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 30,
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 121, 204, 169),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundImage: AssetImage('LOGO.png'),
+                    ),
+                    SizedBox(height: height * 0.03),
+                    Text(
+                      'John Doe',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              Material(
-                elevation: 10, // Adjust the elevation value as needed
-                borderRadius: BorderRadius.circular(
-                    20), // Border radius for rounded corners
-                child: Container(
-                    child: Image.asset('map.jpg',
-                        width: width * 0.9, height: height * 0.5)),
+              ListTile(
+                title: Text('Account'),
+                onTap: () {
+                  // Navigate to account screen
+                },
+                leading: Icon(Icons.person_sharp),
               ),
-              SizedBox(
-                height: height * 0.05,
+              ListTile(
+                title: Text('Report an incident'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AccidentForm()),
+                  );
+                },
+                leading: Icon(Icons.warning_amber_rounded),
               ),
-              Material(
-                // Adjust the elevation value as needed
-                borderRadius: BorderRadius.circular(
-                    20), // Border radius for rounded corners
-                child: Container(
-                  width: width * 0.75,
-                  height: height * 0.32,
-                  decoration: BoxDecoration(
-                    color:
-                        const Color.fromARGB(255, 0, 0, 0), // Color of the rectangle
-                    borderRadius: BorderRadius.circular(
-                        20), // Optional: You can add border radius for rounded corners
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: height * 0.025,
-                        width: width * 0.025,
-                      ),
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text(
-                            "Now Approaching",
-                            style: TextStyle(
-                              color: Colors.deepOrangeAccent, // Text color
-                              fontSize: 36,
-                              fontFamily: 'Inter.ttf', // Font size
-                              fontWeight: FontWeight.bold, // Font weight
-                            ),
-                          ),
-                          SizedBox(
-                            width: width * 0.025,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height * 0.02,
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: width * 0.025,
-                          ),
-                          const Text(
-                            "Neendakara - Chinnakkada Rd, \nSakthikulangara North, Kollam, Kerala \n691003",
-                            style: TextStyle(
-                              color: Colors.deepOrangeAccent, // Text color
-                              fontSize: 14,
-                              fontFamily: 'Inter.ttf', // Font size
-                              fontWeight: FontWeight.normal, // Font weight
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height * 0.02,
-                      ),
-                      Container(
-                        child: Row(
+              ListTile(
+                title: Text('Logout'),
+                onTap: () {
+                  // Perform logout action here
+                  AuthServices.signoutUser();
+                },
+                leading: Icon(Icons.logout),
+              ),
+            ],
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                Material(
+                  elevation: 10, // Adjust the elevation value as needed
+                  borderRadius: BorderRadius.circular(
+                      20), // Border radius for rounded corners
+                  child: Container(
+                      child: Image.asset('map.jpg',
+                          width: width * 0.9, height: height * 0.5)),
+                ),
+                SizedBox(
+                  height: height * 0.043,
+                ),
+                Material(
+                  // Adjust the elevation value as needed
+                  borderRadius: BorderRadius.circular(
+                      20), // Border radius for rounded corners
+                  child: Container(
+                    width: width * 0.85,
+                    height: height * 0.33,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(
+                          255, 0, 0, 0), // Color of the rectangle
+                      borderRadius: BorderRadius.circular(
+                          20), // Optional: You can add border radius for rounded corners
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: height * 0.025,
+                          width: width * 0.025,
+                        ),
+                        Row(
                           children: [
                             SizedBox(
                               width: width * 0.025,
                             ),
-                            Image.asset('emergency.png', width: 25, height: 25),
+                            const Text(
+                              "Now Approaching",
+                              style: TextStyle(
+                                color: Colors.deepOrangeAccent, // Text color
+                                fontSize: 36,
+                                fontFamily: 'Inter.ttf', // Font size
+                                fontWeight: FontWeight.bold, // Font weight
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.025,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: height * 0.02,
+                        ),
+                        Row(
+                          children: [
                             SizedBox(
                               width: width * 0.025,
                             ),
                             const Text(
-                              "Blackspot Detected : 2",
+                              "Neendakara - Chinnakkada Rd, \nSakthikulangara North, Kollam, Kerala \n691003",
                               style: TextStyle(
-                                color: Color.fromARGB(
-                                    255, 255, 255, 255), // Text color
-                                fontSize: 20,
+                                color: Colors.deepOrangeAccent, // Text color
+                                fontSize: 14,
                                 fontFamily: 'Inter.ttf', // Font size
                                 fontWeight: FontWeight.normal, // Font weight
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        height: height * 0.03,
-                      ),
-                      Material(
-                        color: const Color.fromARGB(255, 146, 139, 139),
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          width: width * 0.55,
-                          height: height * 0.055,
-                          decoration: BoxDecoration(
-                              color: const Color.fromARGB(
-                                  255, 62, 62, 62), // Color of the rectangle
-                              borderRadius: BorderRadius.circular(20)),
+                        SizedBox(
+                          height: height * 0.001,
+                        ),
+                        Container(
                           child: Row(
                             children: [
                               SizedBox(
-                                width: width * 0.09,
+                                width: width * 0.025,
+                              ),
+                              Image.asset('emergency.png',
+                                  width: 25, height: 25),
+                              SizedBox(
+                                width: width * 0.025,
                               ),
                               const Text(
-                                "Emergency Contacts",
+                                "Blackspot Detected : 2",
                                 style: TextStyle(
-                                  color: Colors.white, // Text color
-                                  fontSize: 18,
+                                  color: Color.fromARGB(
+                                      255, 255, 255, 255), // Text color
+                                  fontSize: 20,
                                   fontFamily: 'Inter.ttf', // Font size
                                   fontWeight: FontWeight.normal, // Font weight
                                 ),
                               ),
-                              Image.asset('alert.png',
-                                  width: width * 0.1, height: height * 0.9),
-                              SizedBox(
-                                width: width * 0.001,
-                              ),
                             ],
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              SizedBox(
-                width: width * 0.4,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: width * 0.47,
-                  ),
-                  Container(
-                    width: width * 0.233,
-                    height: height * 0.052,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(
-                          255, 189, 188, 188), // Color of the rectangle
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Stack(
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: width * 0.007,
-                            ),
-                            SizedBox(
-                              height: height * 0.055,
-                            ),
-                            Text(
-                              'Report a problem',
-                              style: TextStyle(
-                                color: Colors.black, // Color of the text
-                                fontSize: height * 0.017, // Size of the text
-                                fontWeight:
-                                    FontWeight.bold, // Font weight of the text
-                              ),
-                            ),
-                          ],
+                        SizedBox(
+                          height: height * 0.02,
                         ),
-                        Positioned(
-                          left: width *
-                              0.152, // Adjust the position of the circle as needed
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const AccidentForm()),
-                              );
-                            },
-                            child: Container(
-                              width: width * 0.095, // Diameter of the circle
-                              height: height * 0.052, // Diameter of the circle
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color.fromARGB(
-                                    255, 177, 41, 41), // Color of the circle
-                              ),
-                              child: const Stack(
-                                children: [
-                                  Center(
-                                    child: Text(
-                                      '!',
-                                      style: TextStyle(
-                                        color: Colors
-                                            .white, // Color of the exclamation mark
-                                        fontSize:
-                                            20, // Size of the exclamation mark
-                                        fontWeight: FontWeight
-                                            .bold, // Font weight of the exclamation mark
-                                      ),
-                                    ),
+                        Material(
+                          color: const Color.fromARGB(255, 146, 139, 139),
+                          borderRadius: BorderRadius.circular(20),
+                          child: Container(
+                            width: width * 0.5,
+                            height: height * 0.05,
+                            decoration: BoxDecoration(
+                                color: const Color.fromARGB(
+                                    255, 62, 62, 62), // Color of the rectangle
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                                const Text(
+                                  "Emergency Contacts",
+                                  style: TextStyle(
+                                    color: Colors.white, // Text color
+                                    fontSize: 18,
+                                    fontFamily: 'Inter.ttf', // Font size
+                                    fontWeight:
+                                        FontWeight.normal, // Font weight
                                   ),
-                                ],
-                              ),
+                                ),
+                                Image.asset('alert.png',
+                                    width: width * 0.1, height: height * 0.9),
+                                SizedBox(
+                                  width: width * 0.001,
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ],
                     ),
-                  )
-                ],
-              ),
-            ],
+                  ),
+                ),
+                // SizedBox(
+                //   height: height * 0.03,
+                // ),
+                // SizedBox(
+                //   width: width * 0.4,
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     SizedBox(
+                //       width: width * 0.47,
+                //     ),
+                //     Container(
+                //       width: width * 0.233,
+                //       height: height * 0.01,
+                //       decoration: BoxDecoration(
+                //         color: const Color.fromARGB(
+                //             255, 189, 188, 188), // Color of the rectangle
+                //         borderRadius: BorderRadius.circular(20),
+                //       ),
+                //       child: Stack(
+                //         children: [
+                //           Row(
+                //             children: [
+                //               SizedBox(
+                //                 width: width * 0.019,
+                //               ),
+                //               SizedBox(
+                //                 height: height * 0.02,
+                //               ),
+                //               Text(
+                //                 'Report a problem',
+                //                 style: TextStyle(
+                //                   color: Colors.black, // Color of the text
+                //                   fontSize: height * 0.001, // Size of the text
+                //                   fontWeight: FontWeight
+                //                       .bold, // Font weight of the text
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //           Positioned(
+                //             left: width *
+                //                 0.152, // Adjust the position of the circle as needed
+                //             child: GestureDetector(
+                //               onTap: () {
+                //                 Navigator.push(
+                //                   context,
+                //                   MaterialPageRoute(
+                //                       builder: (context) =>
+                //                           const AccidentForm()),
+                //                 );
+                //               },
+                //               child: Container(
+                //                 width: width * 0.095, // Diameter of the circle
+                //                 height:
+                //                     height * 0.052, // Diameter of the circle
+                //                 decoration: const BoxDecoration(
+                //                   shape: BoxShape.circle,
+                //                   color: Color.fromARGB(
+                //                       255, 177, 41, 41), // Color of the circle
+                //                 ),
+                //                 child: const Stack(
+                //                   children: [
+                //                     Center(
+                //                       child: Text(
+                //                         '!',
+                //                         style: TextStyle(
+                //                           color: Colors
+                //                               .white, // Color of the exclamation mark
+                //                           fontSize:
+                //                               20, // Size of the exclamation mark
+                //                           fontWeight: FontWeight
+                //                               .bold, // Font weight of the exclamation mark
+                //                         ),
+                //                       ),
+                //                     ),
+                //                   ],
+                //                 ),
+                //               ),
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     )
+                //   ],
+                // ),
+              ],
+            ),
           ),
         ),
       ),
