@@ -5,6 +5,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 // ignore: unused_import
 import 'package:safetravel/firebase_options.dart';
 import 'package:safetravel/login.dart';
+import 'package:safetravel/map_page.dart';
 import "package:safetravel/splash.dart";
 import 'package:safetravel/page2.dart';
 import 'package:safetravel/page3.dart';
@@ -14,12 +15,13 @@ void main() {
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'page2',
+    initialRoute: 'map',
     routes: {
       'login': (BuildContext) => LoginForm(),
       'page2': (BuildContext) => MyPage2(),
       'splash': (BuildContext) => Mysplash(),
       'page3': (BuildContext) => MyPage3(),
+      'map': (BuildContext) => MapPage(),
     },
   ));
 }

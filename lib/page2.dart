@@ -186,11 +186,7 @@ class MyPage2 extends StatelessWidget {
                       );
                     }
 // Write data to Firestore
-
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => MyPage3()),
-                    // );
+                    Crud.writeToFirestore(currentLocation, destination);
                   },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 0, 0, 0),
