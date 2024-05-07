@@ -5,7 +5,7 @@ import 'package:safetravel/page2.dart';
 
 class AuthServices {
   // Sign up user
-  static signupUser(String email, String password, String name) async {
+  static signupUser(String email, String password, String name,String phone) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);

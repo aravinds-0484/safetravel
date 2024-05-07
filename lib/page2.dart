@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:safetravel/auth.dart';
 import 'package:safetravel/CRUD.dart';
 import 'package:safetravel/page3.dart';
+import 'package:safetravel/profile.dart';
 
 class MyPage2 extends StatelessWidget {
   final TextEditingController _currentLocationController =
@@ -46,7 +47,7 @@ class MyPage2 extends StatelessWidget {
                   ),
                   SizedBox(height: height * 0.03),
                   Text(
-                    'John Doe',
+                    'Aravind S',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -59,6 +60,11 @@ class MyPage2 extends StatelessWidget {
               title: Text('Account'),
               onTap: () {
                 // Navigate to account screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileScreen()),
+                );
               },
               leading: Icon(Icons.person_sharp),
             ),
