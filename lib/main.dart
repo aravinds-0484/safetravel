@@ -14,7 +14,7 @@ void main() {
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'page3',
+    initialRoute: 'page2',
     routes: {
       'login': (BuildContext) => LoginForm(),
       'page2': (BuildContext) => MyPage2(),

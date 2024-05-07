@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:safetravel/auth.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+  const LoginForm({Key? key});
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -14,6 +14,7 @@ class _LoginFormState extends State<LoginForm> {
   String email = '';
   String password = '';
   String fullname = '';
+  String phone = '';
   bool login = false;
 
   @override
@@ -38,25 +39,48 @@ class _LoginFormState extends State<LoginForm> {
               Container(
                 child: login
                     ? Container()
-                    : TextFormField(
-                        key: const ValueKey('fullname'),
-                        decoration: const InputDecoration(
-                          hintText: 'Enter Full Name',
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please Enter Full Name';
-                          } else {
-                            return null;
-                          }
-                        },
-                        onSaved: (value) {
-                          setState(() {
-                            fullname = value!;
-                          });
-                        },
+                    : Column(
+                        children: [
+                          TextFormField(
+                            key: const ValueKey('fullname'),
+                            decoration: const InputDecoration(
+                              hintText: 'Enter Full Name',
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please Enter Full Name';
+                              } else {
+                                return null;
+                              }
+                            },
+                            onSaved: (value) {
+                              setState(() {
+                                fullname = value!;
+                              });
+                            },
+                          ),
+                          TextFormField(
+                            key: const ValueKey('phone'),
+                            decoration: const InputDecoration(
+                              hintText: 'Enter Phone number',
+                            ),
+                            validator: (value) {
+                              if (value!.length < 10 || value.length > 11) {
+                                return 'Please Enter valid Phone Number';
+                              } else {
+                                return null;
+                              }
+                            },
+                            onSaved: (value) {
+                              setState(() {
+                                phone = value!;
+                              });
+                            },
+                          ),
+                        ],
                       ),
               ),
+
               // ======== Email ========
               TextFormField(
                 key: const ValueKey('email'),
@@ -106,10 +130,23 @@ class _LoginFormState extends State<LoginForm> {
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        login
-                            ? AuthServices.signinUser(email, password)
-                            : AuthServices.signupUser(
+                        try {
+                          if (login) {
+                            await AuthServices.signinUser(email, password);
+                          } else {
+                            await AuthServices.signupUser(
                                 email, password, fullname);
+                          }
+                        } catch (e) {
+                          // Display snackbar for authentication error
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                  'Authentication failed. Please try again.'),
+                              duration: Duration(seconds: 3),
+                            ),
+                          );
+                        }
                       }
                     },
                     child: Text(

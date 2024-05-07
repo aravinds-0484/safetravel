@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:safetravel/auth.dart';
 import 'package:safetravel/CRUD.dart';
+import 'package:safetravel/page3.dart';
 
 class MyPage2 extends StatelessWidget {
   final TextEditingController _currentLocationController =
@@ -19,7 +21,6 @@ class MyPage2 extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 121, 204, 169),
@@ -174,9 +175,17 @@ class MyPage2 extends StatelessWidget {
                     // Assuming you have access to the current location and destination strings
                     String currentLocation = getCurrentLocation();
                     String destination = getDestination();
-
+                    if (currentLocation == "" || destination == "") {
+                      Get.snackbar(
+                          'Invalid value', 'Please enter valid values');
+                    } else {
+                      Crud.writeToFirestore(currentLocation, destination);
+                      Navigator.push(
+                        context as BuildContext,
+                        MaterialPageRoute(builder: (context) => MyPage3()),
+                      );
+                    }
 // Write data to Firestore
-                    Crud.writeToFirestore(currentLocation, destination);
 
                     // Navigator.push(
                     //   context,

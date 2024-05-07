@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safetravel/CRUD.dart';
 import 'package:safetravel/auth.dart';
 //import 'package:get/route_manager.dart';
 
@@ -397,6 +398,7 @@ class _AccidentFormState extends State<AccidentForm> {
                   print('Vehicle 1: $vehicle1');
                   print('Vehicle 2: $vehicle2');
                   print('Time of Accident: $timeOfAccident');
+                  //Crud1.writeTo(timeOfAccident,typeOfAccident,vehicle1,vehicle2);
                 }
               },
               child: const Text('Submit'),

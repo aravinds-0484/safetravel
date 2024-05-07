@@ -41,8 +41,13 @@ class AuthServices {
       if (e.code == 'user-not-found') {
         Get.snackbar('Error', 'No user Found with this Email');
       } else if (e.code == 'wrong-password') {
-        Get.snackbar('Error', 'Password did not match');
+        Get.snackbar('Error', 'Incorrect password');
+      } else {
+        // For other FirebaseAuthExceptions
+        Get.snackbar('Error', e.message ?? 'An error occurred');
       }
+    } catch (e) {
+      Get.snackbar('Error', e.toString());
     }
   }
 
@@ -50,7 +55,8 @@ class AuthServices {
   static signoutUser() async {
     try {
       await FirebaseAuth.instance.signOut();
-      Get.offAll(() => const LoginForm()); // Navigate to login page after signout
+      Get.offAll(
+          () => const LoginForm()); // Navigate to login page after signout
       Get.snackbar('Success', 'Logged out successfully');
     } catch (e) {
       Get.snackbar('Error', 'Failed to sign out');
