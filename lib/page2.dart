@@ -43,7 +43,7 @@ class MyPage2 extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundImage: AssetImage('LOGO.png'),
+                    backgroundImage: AssetImage('assets/LOGO.png'),
                   ),
                   SizedBox(height: height * 0.03),
                   Text(
@@ -98,7 +98,7 @@ class MyPage2 extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(width: width * 0.1),
-                        Image.asset('circle.png',
+                        Image.asset('assets/circle.png',
                             width: width * 0.037, height: height * 0.027),
                         SizedBox(width: width * 0.01),
                         Text(
@@ -136,7 +136,7 @@ class MyPage2 extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(width: width * 0.1),
-                        Image.asset('map-pin.png',
+                        Image.asset('assets/map-pin.png',
                             width: width * 0.037, height: height * 0.027),
                         SizedBox(width: width * 0.01),
                         Text(
@@ -216,7 +216,7 @@ class MyPage2 extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Image.asset('LOGO.png',
+                    Image.asset('assets/LOGO.png',
                         width: width * 0.5, height: width * 0.4),
                     const SizedBox(height: 2),
                     const Text("Your safest travel partner"),

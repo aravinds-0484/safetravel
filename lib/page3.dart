@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safetravel/CRUD.dart';
 import 'package:safetravel/auth.dart';
+import 'package:safetravel/profile.dart';
 //import 'package:get/route_manager.dart';
 
 class MyPage3 extends StatelessWidget {
@@ -29,7 +30,7 @@ class MyPage3 extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('LOGO.png'),
+                      backgroundImage: AssetImage('assets/LOGO.png'),
                     ),
                     SizedBox(height: height * 0.03),
                     Text(
@@ -45,7 +46,11 @@ class MyPage3 extends StatelessWidget {
               ListTile(
                 title: Text('Account'),
                 onTap: () {
-                  // Navigate to account screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfileScreen()),
+                  );
                 },
                 leading: Icon(Icons.person_sharp),
               ),
@@ -84,7 +89,7 @@ class MyPage3 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(
                       20), // Border radius for rounded corners
                   child: Container(
-                      child: Image.asset('map.jpg',
+                      child: Image.asset('assets/map.jpg',
                           width: width * 0.9, height: height * 0.5)),
                 ),
                 SizedBox(
@@ -156,7 +161,7 @@ class MyPage3 extends StatelessWidget {
                               SizedBox(
                                 width: width * 0.025,
                               ),
-                              Image.asset('emergency.png',
+                              Image.asset('assets/emergency.png',
                                   width: 25, height: 25),
                               SizedBox(
                                 width: width * 0.025,
@@ -202,7 +207,7 @@ class MyPage3 extends StatelessWidget {
                                         FontWeight.normal, // Font weight
                                   ),
                                 ),
-                                Image.asset('alert.png',
+                                Image.asset('assets/alert.png',
                                     width: width * 0.1, height: height * 0.9),
                                 SizedBox(
                                   width: width * 0.001,

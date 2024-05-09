@@ -5,7 +5,8 @@ import 'package:safetravel/page2.dart';
 
 class AuthServices {
   // Sign up user
-  static signupUser(String email, String password, String name,String phone) async {
+  static signupUser(
+      String email, String password, String name, String phone) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -55,8 +56,7 @@ class AuthServices {
   static signoutUser() async {
     try {
       await FirebaseAuth.instance.signOut();
-      Get.offAll(
-          () => const LoginForm()); // Navigate to login page after signout
+      Get.offAll(() => const LoginForm());
       Get.snackbar('Success', 'Logged out successfully');
     } catch (e) {
       Get.snackbar('Error', 'Failed to sign out');

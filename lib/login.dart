@@ -37,7 +37,7 @@ class _LoginFormState extends State<LoginForm> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('LOGO.png'),
+                  Image.asset('assets/LOGO.png'),
                   if (login)
                     Column(
                       children: [
@@ -181,7 +181,7 @@ class _LoginFormState extends State<LoginForm> {
                       login
                           ? "Already have an account? Login"
                           : "Don't have an account? Signup",
-                      style: TextStyle(fontSize: width * 0.02),
+                      style: TextStyle(fontSize: width * 0.03),
                     ),
                   ),
                 ],
