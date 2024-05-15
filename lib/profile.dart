@@ -47,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: Center(
         child: _user != null
             ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CircleAvatar(
                     radius: width * 0.1,
@@ -58,7 +58,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     'Welcome, ${_user!.displayName ?? 'User'}',
                     style: TextStyle(fontSize: 20),
                   ),
+                  Divider(),
                   SizedBox(height: 20),
+                  Text(
+                    'email :' + '${_user!.email}',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  Divider(),
+                  SizedBox(
+                    height: height * 0.5,
+                  ),
                   ElevatedButton(
                     onPressed: () async {
                       try {

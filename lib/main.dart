@@ -14,13 +14,13 @@ void main() {
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'login',
+    initialRoute: 'profile',
     routes: {
       'login': (BuildContext) => LoginForm(),
       'page2': (BuildContext) => MyPage2(),
       'splash': (BuildContext) => Mysplash(),
       'page3': (BuildContext) => MyPage3(),
-      'map': (BuildContext) => MapPage(),
+      'map': (BuildContext) => MapPage(destination: ''),
       'profile': (BuildContext) => ProfileScreen(),
     },
   ));

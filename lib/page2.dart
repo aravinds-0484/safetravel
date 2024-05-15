@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:safetravel/auth.dart';
 import 'package:safetravel/CRUD.dart';
-import 'package:safetravel/page3.dart';
+import 'package:safetravel/map_page.dart';
 import 'package:safetravel/profile.dart';
 
 class MyPage2 extends StatelessWidget {
@@ -86,7 +86,7 @@ class MyPage2 extends StatelessWidget {
             children: [
               SizedBox(height: height * 0.04),
               Container(
-                width: width * 0.6,
+                width: width * 0.9,
                 height: height * 0.4,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 213, 232, 224),
@@ -99,13 +99,13 @@ class MyPage2 extends StatelessWidget {
                       children: [
                         SizedBox(width: width * 0.1),
                         Image.asset('assets/circle.png',
-                            width: width * 0.037, height: height * 0.027),
+                            width: width * 0.04, height: height * 0.04),
                         SizedBox(width: width * 0.01),
                         Text(
                           "Choose Current Location",
                           style: TextStyle(
                             color: const Color.fromARGB(255, 0, 0, 0),
-                            fontSize: 0.03 * width,
+                            fontSize: 0.045 * width,
                             fontFamily: 'Inter.ttf',
                             fontWeight: FontWeight.normal,
                           ),
@@ -115,7 +115,7 @@ class MyPage2 extends StatelessWidget {
                     ),
                     SizedBox(height: height * 0.019),
                     SizedBox(
-                      width: width * 0.4,
+                      width: width * 0.85,
                       height: height * 0.05,
                       child: TextField(
                         controller: _currentLocationController,
@@ -126,7 +126,7 @@ class MyPage2 extends StatelessWidget {
                           filled: true,
                           fillColor: const Color.fromARGB(255, 247, 249, 248),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30.0),
+                            borderRadius: BorderRadius.circular(15.0),
                             borderSide: BorderSide.none,
                           ),
                         ),
@@ -143,16 +143,16 @@ class MyPage2 extends StatelessWidget {
                           "Choose Destination",
                           style: TextStyle(
                             color: const Color.fromARGB(255, 0, 0, 0),
-                            fontSize: width * 0.03,
+                            fontSize: width * 0.045,
                             fontFamily: 'Inter.ttf',
                             fontWeight: FontWeight.normal,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: height * 0.02),
+                    SizedBox(height: height * 0.01),
                     SizedBox(
-                      width: width * 0.4,
+                      width: width * 0.85,
                       height: height * 0.05,
                       child: TextField(
                         controller: _destinationController,
@@ -163,7 +163,7 @@ class MyPage2 extends StatelessWidget {
                           filled: true,
                           fillColor: const Color.fromARGB(255, 247, 249, 248),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30.0),
+                            borderRadius: BorderRadius.circular(15.0),
                             borderSide: BorderSide.none,
                           ),
                         ),
@@ -181,14 +181,16 @@ class MyPage2 extends StatelessWidget {
                     // Assuming you have access to the current location and destination strings
                     String currentLocation = getCurrentLocation();
                     String destination = getDestination();
-                    if (currentLocation == "" || destination == "") {
+                    if (destination == "") {
                       Get.snackbar(
                           'Invalid value', 'Please enter valid values');
                     } else {
                       Crud.writeToFirestore(currentLocation, destination);
                       Navigator.push(
                         context as BuildContext,
-                        MaterialPageRoute(builder: (context) => MyPage3()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                MapPage(destination: '$destination')),
                       );
                     }
 // Write data to Firestore
@@ -212,7 +214,7 @@ class MyPage2 extends StatelessWidget {
               SizedBox(height: height * 0.001),
               SizedBox(
                 width: width * 0.8,
-                height: height * 0.4,
+                height: height * 0.3,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
